@@ -4,7 +4,7 @@
 use Sxqibo\FastUtils\library\SpreadsheetUtil;
 use PHPUnit\Framework\TestCase;
 
-class phpExcelTest extends TestCase
+class phpexcelTest extends TestCase
 {
     public function testExport()
     {
