@@ -1,0 +1,25 @@
+{
+  "name": "sxqibo/fast-utils",
+  "description": "常用类库",
+  "type": "library",
+  "autoload": {
+    "psr-4": {
+      "Sxqibo\\FastUtils\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "weifeng",
+      "email": "50098161@qq.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.4",
+    "topthink/framework": ">=6.0.0",
+    "phpoffice/phpword": "^1.1",
+    "phpoffice/phpspreadsheet": "^1.29"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^10.3"
+  }
+}
