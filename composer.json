@@ -18,7 +18,7 @@
     }
   ],
   "require": {
-    "php": ">=7.4",
+    "php": ">=8.0",
     "topthink/framework": ">=6.0.0",
     "phpoffice/phpword": "^1.1",
     "phpoffice/phpspreadsheet": "^1.29"
