@@ -23,7 +23,7 @@ class TestVersion extends TestCase
         $result = Version::compare($requiredVersion, $currentVersion);
 
         // 预期：当前版本满足要求
-        $this->assertEquals(true, $result);
+        $this->assertTrue($result);
     }
 
 
@@ -35,7 +35,7 @@ class TestVersion extends TestCase
 
         $result = Version::compare($requiredVersion, $currentVersion);
         // 预期：当前版本满足要求
-        $this->assertEquals(true, $result);
+        $this->assertTrue($result);
     }
 
 
@@ -47,7 +47,7 @@ class TestVersion extends TestCase
 
         $result = Version::compare($requiredVersion, $currentVersion);
         // 预期：当前版本满足要求
-        $this->assertEquals(true, $result);
+        $this->assertTrue($result);
     }
 
     // 比较包含连字符的版本号
@@ -58,7 +58,7 @@ class TestVersion extends TestCase
 
         $result = Version::compare($requiredVersion, $currentVersion);
         // 预期：当前版本满足要求
-        $this->assertEquals(true, $result);
+        $this->assertTrue($result);
     }
 
     // 比较带有通配符的版本号
@@ -69,7 +69,7 @@ class TestVersion extends TestCase
 
         $result = Version::compare($requiredVersion, $currentVersion);
         // 预期：当前版本满足要求
-        $this->assertEquals(true, $result);
+        $this->assertTrue($result);
 
     }
 
@@ -81,7 +81,7 @@ class TestVersion extends TestCase
 
         $result = Version::compare($requiredVersion, $currentVersion);
         // 预期：当前版本不满足要求
-        $this->assertEquals(false, $result);
+        $this->assertFalse($result);
     }
 
     // 比较版本号中不同部分的情况
@@ -92,7 +92,7 @@ class TestVersion extends TestCase
 
         $result = Version::compare($requiredVersion, $currentVersion);
         // 预期：当前版本不满足要求
-        $this->assertEquals(true, $result);
+        $this->assertTrue($result);
     }
 
     // 比较版本号部分个数不同的情况
@@ -103,6 +103,6 @@ class TestVersion extends TestCase
 
         $result = Version::compare($requiredVersion, $currentVersion);
         // 预期：当前版本不满足要求
-        $this->assertEquals(false, $result);
+        $this->assertFalse($result);
     }
 }
