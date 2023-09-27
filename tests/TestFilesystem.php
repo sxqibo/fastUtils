@@ -21,7 +21,7 @@ class TestFilesystem  extends TestCase
         $directoryToDelete = dirname(__FILE__).'/../public/runtime/test';
 
         // 调用 delDir 方法，将 $delSelf 参数设为 true，表示删除目录本身
-        if (Filesystem::delDir($directoryToDelete, true)) {
+        if (FileSystem::delDir($directoryToDelete, true)) {
             echo "目录删除成功！";
         } else {
             echo "无法删除目录。";
@@ -34,7 +34,7 @@ class TestFilesystem  extends TestCase
         $directoryToDelete = dirname(__FILE__).'/../public/runtime/test';
 
         // 调用 delDir 方法，将 $delSelf 参数设为 true，表示删除目录本身
-        if (Filesystem::delDir($directoryToDelete, false)) {
+        if (FileSystem::delDir($directoryToDelete, false)) {
             echo "目录删除成功！";
         } else {
             echo "无法删除目录。";
