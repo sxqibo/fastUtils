@@ -15,6 +15,10 @@ use Sxqibo\FastUtils\FileSystem;
 class TestFilesystem  extends TestCase
 {
 
+    /**
+     * 示例 1：删除目录及其内容
+     * @return void
+     */
     public function testOne()
     {
         // test目录
@@ -28,6 +32,10 @@ class TestFilesystem  extends TestCase
         }
     }
 
+    /**
+     * 示例 2：只删除目录中的内容，保留目录本身
+     * @return void
+     */
     public function testTwo()
     {
         // test目录
