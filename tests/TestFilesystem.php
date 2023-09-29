@@ -48,4 +48,34 @@ class TestFilesystem  extends TestCase
             echo "无法删除目录。";
         }
     }
+
+    /**
+     * 测试 dirIsEmpty 方法
+     */
+    public function testDirIsEmpty()
+    {
+        // 创建一个临时测试目录
+        $testDir = __DIR__ . '/test_dir';
+        mkdir($testDir);
+
+        // 测试空目录
+        $this->assertTrue(Filesystem::dirIsEmpty($testDir));
+
+        // 在目录中创建一个文件
+        $filePath = $testDir . '/test_file.txt';
+        file_put_contents($filePath, 'Hello, World!');
+
+        // 测试非空目录
+        $this->assertFalse(Filesystem::dirIsEmpty($testDir));
+
+        // 删除测试文件
+        unlink($filePath);
+
+        // 再次测试空目录
+        $this->assertTrue(Filesystem::dirIsEmpty($testDir));
+
+        // 删除临时测试目录
+        rmdir($testDir);
+    }
+
 }

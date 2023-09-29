@@ -49,4 +49,21 @@ class FileSystem
 
         return true;
     }
+
+    /**
+     * 是否是空目录
+     */
+    public static function dirIsEmpty(string $dir): bool
+    {
+        if (!file_exists($dir)) return true;
+        $handle = opendir($dir);
+        while (false !== ($entry = readdir($handle))) {
+            if ($entry != "." && $entry != "..") {
+                closedir($handle);
+                return false;
+            }
+        }
+        closedir($handle);
+        return true;
+    }
 }
