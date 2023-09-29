@@ -66,4 +66,14 @@ class FileSystem
         closedir($handle);
         return true;
     }
+
+    /**
+     * 路径分隔符根据当前系统分隔符适配
+     * @param string $path 路径
+     * @return string 转换后的路径
+     */
+    public static function fsFit(string $path): string
+    {
+        return str_replace(['/', '\\'], DIRECTORY_SEPARATOR, $path);
+    }
 }

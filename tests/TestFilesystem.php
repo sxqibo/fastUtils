@@ -78,4 +78,22 @@ class TestFilesystem  extends TestCase
         rmdir($testDir);
     }
 
+    /**
+     * 测试 fsFit 方法
+     */
+    public function testFsFit()
+    {
+        // 测试在Windows下的路径
+        $windowsPath = 'C:\\Users\\Username\\Documents\\file.txt';
+        $this->assertEquals($windowsPath, Filesystem::fsFit($windowsPath));
+
+        // 测试在Unix/Linux下的路径
+        $unixPath = '/home/username/documents/file.txt';
+        $this->assertEquals($unixPath, Filesystem::fsFit($unixPath));
+
+        // 测试混合斜杠和反斜杠的路径
+        $mixedPath = 'C:/Users\\Username/Documents/file.txt';
+        $this->assertEquals($windowsPath, Filesystem::fsFit($mixedPath));
+    }
+
 }
