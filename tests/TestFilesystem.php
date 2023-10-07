@@ -96,4 +96,24 @@ class TestFilesystem  extends TestCase
         $this->assertEquals($windowsPath, Filesystem::fsFit($mixedPath));
     }
 
+
+    public function testDelEmptyDir()
+    {
+        // 创建测试文件夹和文件
+        $rootPath = '/Users/apple/wwwroot/github-2023-sxqibo/fastUtils/public';
+        mkdir($rootPath, 0755, true);
+        mkdir($rootPath . '/empty_dir', 0755);
+        mkdir($rootPath . '/non_empty_dir', 0755);
+        file_put_contents($rootPath . '/non_empty_dir/file.txt', 'Some content');
+
+        // 运行 delEmptyDir 方法
+        FileSystem::delEmptyDir($rootPath);
+        FileSystem::delEmptyDir($rootPath.'/empty_dir');
+        FileSystem::delEmptyDir($rootPath.'/non_empty_dir');
+
+        // 使用断言来检查是否成功删除了空文件夹
+        $this->assertDirectoryExists($rootPath); // 根文件夹应该仍然存在
+        $this->assertDirectoryExists($rootPath . '/non_empty_dir'); // 非空文件夹应该保持不变
+        $this->assertDirectoryDoesNotExist($rootPath. '/empty_dir'); // 空文件夹应该被删除
+    }
 }
